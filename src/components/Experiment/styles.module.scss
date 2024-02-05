@@ -1,0 +1,120 @@
+.experiment {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  // width: 100vw;
+  
+  .description {
+    padding: 2vw 3vw 2vw 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 92lvh;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    
+    .top {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+
+      h1 {
+        text-wrap: balance;
+        width: 40%;
+      }
+      .counter {
+        text-wrap: nowrap;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        height: fit-content;
+      }
+    }
+
+    .center {
+      display: flex;
+      justify-content: space-between;
+      
+      .link {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+        height: fit-content;
+        cursor: pointer;
+        position: relative;
+        padding: 1vw 0.2vw;
+        overflow: hidden;
+
+        &:hover {
+          &::before {
+            right: -20%;
+          }
+        }
+
+        &::after {
+          content: "";
+          background-color: #e7e4df;
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 0.1vw;
+          transition: all 0.5s cubic-bezier(1,0,.38,.99);
+        }
+        
+        &::before {
+          z-index: 10;
+          content: "";
+          background-color: #1d1c1c;
+          position: absolute;
+          top: 0;
+          right: 100%;
+          height: 0.1vw;
+          width: 20%;
+          transition: all 1s cubic-bezier(0.81,-0.02, 0.18, 0.89);
+        }
+      }
+
+      .featured {
+        display: flex;
+        gap: 2vw;
+
+        &List {
+          p {
+            margin-bottom: 1vw;
+          }
+          
+
+          .authors {
+            opacity: 0.5;
+            transition: all 0.3s ease;
+          }
+          
+          .active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  
+  .imageWrapper {
+    position: sticky;
+    top: 0;
+    width: 34vw;
+    height: 110lvh;
+
+    &:not(.imageWrapper:nth-of-type(1)){
+      opacity: 0.5;
+    }
+
+    background: center no-repeat;
+    background-size: 100%;
+  }
+}

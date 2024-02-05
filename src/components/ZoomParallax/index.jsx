@@ -1,78 +1,99 @@
-import styles from './styles.module.scss';
-import Picture1 from '../../../public/images/1.jpeg';
-import Picture2 from '../../../public/images/2.jpeg';
-import Picture3 from '../../../public/images/3.jpg';
-import Picture4 from '../../../public/images/4.jpg'
-import Picture5 from '../../../public/images/5.jpg'
-import Picture6 from '../../../public/images/6.jpg'
-import Picture7 from '../../../public/images/7.jpeg'
-import Image from 'next/image';
-import { useScroll, useTransform, motion} from 'framer-motion';
-import { useRef } from 'react';
+import styles from "./styles.module.scss";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 export default function Index() {
-    
-    const container = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ['start start', 'end end']
-    })
+  const container = useRef(null);
+  const paralax = useRef(null);
+  const image = useRef([]);
+  const wrappers = useRef([]);
 
-    const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
-    const scale5 = useTransform(scrollYProgress, [0, 1], [1, 5]);
-    const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
-    const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
-    const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+  gsap.registerPlugin(ScrollTrigger);
 
-    const pictures = [
-        {
-            src: Picture1,
-            scale: scale4
+  useGSAP(() => {
+    image.current.forEach((currI) => {
+      gsap.to(currI, {
+        backgroundPositionY: `${gsap.utils.random(60, 90)}%`,
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: paralax.current,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: true,
         },
-        {
-            src: Picture2,
-            scale: scale5
-        },
-        {
-            src: Picture3,
-            scale: scale6
-        },
-        {
-            src: Picture4,
-            scale: scale5
-        },
-        {
-            src: Picture5,
-            scale: scale6
-        },
-        {
-            src: Picture6,
-            scale: scale8
-        },
-        {
-            src: Picture7,
-            scale: scale9
+      });
+    });
+
+    wrappers.current.forEach((currW, i) => {
+      gsap.to(currW, {
+        scale: pictures[i].scale,
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
         }
-    ]
+      }, 0.5)
+    })
+  });
 
-    return (
-        <div ref={container} className={styles.container}>
-            <div className={styles.sticky}>
-                {
-                    pictures.map( ({src, scale}, index) => {
-                        return <motion.div key={index} style={{scale}} className={styles.el}>
-                            <div className={styles.imageContainer}>
-                                <Image
-                                    src={src}
-                                    fill
-                                    alt="image"
-                                    placeholder='blur'
-                                />
-                            </div>
-                        </motion.div>
-                    })
-                }
-            </div>
+  const pictures = [
+    {
+      src: "/images/Scroll/1.png",
+      scale: 4,
+    },
+    {
+      src: "/images/Scroll/2.png",
+      scale: 5,
+    },
+    {
+      src: "/images/Scroll/3.png",
+      scale: 6,
+    },
+    {
+      src: "/images/Scroll/4.png",
+      scale: 5,
+    },
+    {
+      src: "/images/Scroll/5.png",
+      scale: 6,
+    },
+    {
+      src: "/images/Scroll/6.png",
+      scale: 8,
+    },
+    {
+      src: "/images/Scroll/7.png",
+      scale: 9,
+    },
+  ];
+
+  return (
+    <div className={styles.zoomParalax} ref={paralax}>
+      <div ref={container} className={styles.container}>
+        <div className={styles.sticky}>
+          {pictures.map(({ src, scale }, index) => {
+            return (
+              <div
+                key={index}
+                className={styles.el}
+                ref={(pic) => wrappers.current.push(pic)}
+              >
+                <div className={styles.imageContainer}
+                >
+                  <div
+                    className={styles.image}
+                    style={{ backgroundImage: `url(${src})` }}
+                    ref={(i) => image.current.push(i)}
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
-    )
+      </div>
+    </div>
+  );
 }

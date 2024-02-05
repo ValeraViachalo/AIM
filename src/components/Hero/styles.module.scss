@@ -1,0 +1,56 @@
+.hero {
+  height: 100lvh;
+  position: relative;
+
+  .logo {
+    width: 10vw;
+    height: 2vw;
+    position: absolute;
+    top: 0;
+    left: 1%;
+  }
+
+  .bigLogo {
+    width: 100vw;
+    height: 56lvh;
+    margin: 1vw auto 0;
+    position: relative;
+  }
+
+  .bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    border-top: 0.1vw solid;
+    border-bottom: 0.1vw solid;
+    
+    position: relative;
+
+    width: 96%;
+    padding: 1.5% 2%;
+    margin: 2vw 0;
+
+    .left {
+      display: flex;
+      justify-content: space-between;
+      width: 35%;
+
+      .line {
+        background-color: #e7e4df;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0.01vw;
+        left: 37%;
+      }
+    }
+
+    .right {
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+}
