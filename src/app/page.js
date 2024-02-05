@@ -7,7 +7,7 @@ import Lenis from "@studio-freight/lenis";
 import Hero from "@/components/Hero/Hero";
 import Experiment from "@/components/Experiment/Experiment";
 import Footer from "@/components/Footer/Footer";
-import LogoAnim from "@/components/LogoAnim/LogoAnim";
+// import LogoAnim from "@/components/LogoAnim/LogoAnim";
 
 export default function Home() {
   useEffect(() => {

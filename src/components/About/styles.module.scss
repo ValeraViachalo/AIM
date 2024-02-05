@@ -4,7 +4,16 @@
   .title {
     margin-top: 6vw;
 
-    .small-text {
+    .lineMask {
+      overflow: hidden;
+    }
+  }
+
+  .postScript {
+    margin: 4vw 0;
+    div {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
