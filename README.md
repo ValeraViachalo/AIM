@@ -1,7 +1,7 @@
 ![alt text](public/images/forReadme.png)
 # AIM Experiment Project
 ### [Live Demo](https://aim-kappa.vercel.app/)
-### Images and text by [Obys Agency AIM](https://aim.obys.agency/)
+### Inspired By [Obys Agency AIM](https://aim.obys.agency/)
 ### Zoom effect by [Oliver Larose`s](https://blog.olivierlarose.com/tutorials/zoom-parallax) blog (changed animation from Framer motion to GSAP)
 
 #### "createdWith": {
