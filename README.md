@@ -1,4 +1,4 @@
-![alt text](public/images/forReadme.png)
+![alt text](public/images/forReadme.webp)
 # AIM Experiment Project
 ### [Live Demo](https://aim-kappa.vercel.app/)
 ### Inspired By [Obys Agency AIM](https://aim.obys.agency/)

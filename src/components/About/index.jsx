@@ -74,7 +74,7 @@ function MaskText({ phrase }) {
 
   const { ref, inView, entry } = useInView({
     triggerOnce: true,
-    threshold: 0.75,
+    threshold: 0.25,
   });
 
   return (

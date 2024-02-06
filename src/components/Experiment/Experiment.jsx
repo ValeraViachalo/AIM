@@ -143,7 +143,7 @@ export default function Experiment() {
             <div
               key={index}
               className={styles.imageWrapper}
-              style={{ zIndex: index, backgroundImage: `url(/images/experiment/${index}.png)`}}
+              style={{ zIndex: index, backgroundImage: `url(/images/experiment/${index}.webp)`}}
               ref={img => images.current.push(img)}
             >
               {/* <Image

@@ -41,31 +41,31 @@ export default function Index() {
 
   const pictures = [
     {
-      src: "/images/Scroll/1.png",
+      src: "/images/Scroll/1.webp",
       scale: 4,
     },
     {
-      src: "/images/Scroll/2.png",
+      src: "/images/Scroll/2.webp",
       scale: 5,
     },
     {
-      src: "/images/Scroll/3.png",
+      src: "/images/Scroll/3.webp",
       scale: 6,
     },
     {
-      src: "/images/Scroll/4.png",
+      src: "/images/Scroll/4.webp",
       scale: 5,
     },
     {
-      src: "/images/Scroll/5.png",
+      src: "/images/Scroll/5.webp",
       scale: 6,
     },
     {
-      src: "/images/Scroll/6.png",
+      src: "/images/Scroll/6.webp",
       scale: 8,
     },
     {
-      src: "/images/Scroll/7.png",
+      src: "/images/Scroll/7.webp",
       scale: 9,
     },
   ];
