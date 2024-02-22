@@ -17,3 +17,6 @@
   "sass": "^1.69.7"
 ```
 #### }
+<hr />
+
+![alt text](public/LogoReadme.svg)
